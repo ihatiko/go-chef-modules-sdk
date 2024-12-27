@@ -16,11 +16,8 @@ func NewModule() *Module {
 		Use:  "version",
 		Long: "get current version module",
 		Run: func(cmd *cobra.Command, args []string) {
-			dbg, err := debug.ParseBuildInfo("")
-			if err != nil {
-				slog.Error("Error parsing build info", slog.String("error", err.Error()))
-			}
-			fmt.Println(dbg.Main.Version)
+			build, _ := debug.ReadBuildInfo()
+			fmt.Println(build.Main.Version)
 		},
 	}
 	mainCommand := &cobra.Command{}
