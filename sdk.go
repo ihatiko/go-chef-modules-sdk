@@ -13,8 +13,8 @@ type Module struct {
 
 func NewModule() *Module {
 	var versionCmd = &cobra.Command{
-		Use:  "version",
-		Long: "get current version module",
+		Use:   "version",
+		Short: "get current version module",
 		Run: func(cmd *cobra.Command, args []string) {
 			build, _ := debug.ReadBuildInfo()
 			fmt.Println(build.Main.Version)
